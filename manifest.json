@@ -1,0 +1,28 @@
+{
+  "name": "Chrome AEM Plugin",
+  "description" : "Plugin to save time debugging as an AEM developer.",
+  "version": "1.0",
+  "permissions": ["declarativeContent", "storage","tabs"],
+  "manifest_version": 2,
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+   },
+  "page_action":
+  {
+  	"default_popup":"popup.html",
+  	"default_icon": {
+  		"16": "images/aem-plugin-16.png",
+        "32": "images/aem-plugin-32.png",
+        "48": "images/aem-plugin-48.png",
+        "128": "images/aem-plugin-128.png"
+  	}
+  },
+  	"icons": {
+  		"16": "images/aem-plugin-16.png",
+        "32": "images/aem-plugin-32.png",
+        "48": "images/aem-plugin-48.png",
+        "128": "images/aem-plugin-128.png"
+  	},
+  	 "options_page": "options.html"
+}

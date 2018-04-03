@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        body {
+          background: rgb(40, 22, 10);
+          width: 250px;
+          font-family: adobe-clean,Helvetica,Arial,sans-serif;
+          padding: 1em;
+        }
+        button {
+          color: rgb(253, 231, 212);
+          border: 1px solid rgb(248, 120, 46);
+          border-radius: 4px;
+          display:inline-block;
+          background: none;
+          font: inherit;
+          outline: inherit;
+        }
+        button:hover {
+          background: rgb(248, 120, 46);
+        }
+        p {
+          color: rgb(248, 120, 46);
+        }
+      </style>
+    </head>
+    <body>
+      <p>Open current page in:</p>
+      <button id="openCrx">CRX/DE</button>
+      <button id="openWcmDisabled">Preview</button>
+      <button id="openSiteAdmin">Sites Console</button>
+    </body>
+    <script src="popup.js"></script>
+  </html>
