@@ -15,21 +15,25 @@ if(data.items && data.items.length > 0){
   }
 });
 
-crx.onclick = function(element) {
+function openInCrx(element){
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 		var href = tabs[0].url;
 		var host = new URL(href).hostname;
 		var ipForHost = (hosts.get(host) === undefined)?host:hosts.get(host);
-		href = href.replace(host, ipForHost).replace("editor.html", "crx/de/index.jsp#").replace('.html','');
+		href = href.replace(host, ipForHost).replace("editor.html", "crx/de/index.jsp#");
+		(href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
 		window.open(href);
 	});
+}
+crx.onclick = function(element) {
+	openInCrx(undefined);
 }
 
 preview.onclick = function(element) {
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     	var href = tabs[0].url;
 		href = href.replace('editor.html/','');
-		href += "?wcmmode=disabled";
+		(href.indexOf("?") > -1)?href += "&wcmmode=disabled":href+="?wcmmode=disabled";
 		window.open(href);
 	});
 }
@@ -37,7 +41,9 @@ preview.onclick = function(element) {
 sites.onclick = function(element) {
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     	var href = tabs[0].url;
-		href = href.replace('editor.html/','{PLACEHOLDER}').replace('.html','').replace("{PLACEHOLDER}","sites.html/");
+		href = href.replace('editor.html/','{PLACEHOLDER}');
+		(href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
+		href = href.replace("{PLACEHOLDER}","sites.html/");
 		window.open(href);
 	});
 }
