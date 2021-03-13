@@ -1,6 +1,7 @@
 let crx = document.getElementById('openCrx');
 let preview = document.getElementById('openWcmDisabled');
 let sites = document.getElementById('openSiteAdmin');
+let properties = document.getElementById('openProperties');
 var hosts = new Map();
 
 chrome.storage.sync.get('items', function(data) {
@@ -44,6 +45,16 @@ sites.onclick = function(element) {
 		href = href.replace('editor.html/','{PLACEHOLDER}');
 		(href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
 		href = href.replace("{PLACEHOLDER}","sites.html/");
+		window.open(href);
+	});
+}
+
+properties.onclick = function(element){
+	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+	var href = tabs[0].url;
+		href = href.replace('editor.html','{PLACEHOLDER}');
+		(href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
+		href = href.replace("{PLACEHOLDER}","mnt/overlay/wcm/core/content/sites/properties.html?item=");
 		window.open(href);
 	});
 }

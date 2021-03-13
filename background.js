@@ -44,14 +44,23 @@ if(data.items && data.items.length > 0){
 					window.open(href);
 				});
         		break;
-        	case 'openInSites':
-        		chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-    				var href = tabs[0].url;
-					href = href.replace('editor.html/','{PLACEHOLDER}');
-					(href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
-					href = href.replace("{PLACEHOLDER}","sites.html/");
-					window.open(href);
-				});
-        		break;
+          case 'openInSites':
+            chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+            var href = tabs[0].url;
+          href = href.replace('editor.html/','{PLACEHOLDER}');
+          (href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
+          href = href.replace("{PLACEHOLDER}","sites.html/");
+          window.open(href);
+        });
+            break;
+          case 'openProperties':
+            chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+  var href = tabs[0].url;
+    href = href.replace('editor.html','{PLACEHOLDER}');
+    (href.indexOf('.html')>0)?href = href.substring(0, href.indexOf('.html')):href=href;
+    href = href.replace("{PLACEHOLDER}","mnt/overlay/wcm/core/content/sites/properties.html?item=");
+    window.open(href);
+  });
+            break;
         }
 });
