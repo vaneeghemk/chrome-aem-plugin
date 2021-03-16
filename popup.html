@@ -1,40 +1,82 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <style>
-         body {
-            border: 1px solid rgb(248, 120, 46);
+<html lang="en">
+<head>
+    <title>Chrome AEM Plugin</title>
+    <style>
+        body {
+            background: rgb(58, 43, 29);
+            width: 250px;
+            font-family: adobe-clean, Helvetica, Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        img {
+            display: inline-block;
+        }
+
+        h1 {
+            display: inline-block;
+            font-size: 1rem;
+            transform: translateY(-50%);
+            margin-left: 1rem;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        button {
+            color: white;
+            border: 1px solid white;
             border-radius: 4px;
-         background: white;
-         width: 250px;
-         font-family: adobe-clean,Helvetica,Arial,sans-serif;
-         padding: 1em;
-         font-weight: bold;
-         }
-         button {
-         color: rgb(58, 43, 29);
-         border: 1px solid rgb(248, 120, 46);
-         border-radius: 4px;
-         display:inline-block;
-         background: none;
-         font: inherit;
-         outline: inherit;
-         }
-         button:hover {
-         background: rgb(248, 120, 46);
-         color: white;
-         }
-         p {
-         color: rgb(58, 43, 29);
-         }
-      </style>
-   </head>
-   <body>
-      <p>Open current page in:</p>
-      <button id="openCrx">CRX/DE</button>
-      <button id="openWcmDisabled">Preview</button>
-      <button id="openSiteAdmin">Sites Console</button>
-      <button id="openProperties">Page Properties</button>
-   </body>
-   <script src="popup.js"></script>
+            display: block;
+            background: rgba(255, 255, 255, 0.4);
+            font: inherit;
+            outline: inherit;
+            margin-bottom: .5rem;
+        }
+
+        button:disabled {
+            background: rgba(248, 120, 46, 0.2);
+            color: rgba(58, 43, 29, 0.4);
+            border: none;
+        }
+
+        button:not(:disabled):hover {
+            color: rgb(248, 120, 46);
+        }
+
+        p {
+            color: white;
+            text-align: center;
+        }
+
+        .footer {
+            font-size: 0.5rem;
+            color: white;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="images/aem-plugin-32.png" alt="chrome aem plugin"/>
+    <h1>AEM Chrome Plugin</h1>
+</div>
+<p>Open current page in:</p>
+<div class="buttons">
+    <button id="openCrx">CRX/DE</button>
+    <button id="openEdit">Edit</button>
+    <button id="openWcmDisabled">Preview</button>
+    <button id="openSiteAdmin">Sites Console</button>
+    <button id="openProperties">Page Properties</button>
+</div>
+<div class="footer">
+    <span>v2.0.0</span>
+</div>
+<script src="popup.js"></script>
+</body>
 </html>

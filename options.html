@@ -1,38 +1,49 @@
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chrome AEM Plugin - Options</title>
+    <style>
         body {
-          padding: 5% 15%;
+            padding: 5% 15%;
         }
+
         table {
-          width: 100%;
+            width: 100%;
         }
+
         th {
-          width: 50%;
+            width: 50%;
         }
+
         input {
-          width: 100%;
+            width: 100%;
         }
+
         #success {
-          color: green;
-          font-style: italic;
+            color: green;
+            font-style: italic;
         }
-      </style>
-    </head>
-    <body>
-      <h1>AEM Chrome Plugin: IP - Sites Mapping</h1>
-      <p>The <a href="https://helpx.adobe.com/experience-manager/6-3/sites/developing/using/best-practices.html" target="_blank">AEM Best Practices</a> advises you to block access to some developer tools on the AEM author. Access should only be available when accessing the author by IP. The below mapping makes sure that you can access these tools without hitting a block from dispatcher level.</p>
-      <button id="save">Save mappings</button><span id="success" style="display:none;">Changes successfully changed!</span>
-      <table>
-        <tbody id="mappingsTable" data-count="0">
-          <tr>
-            <th>IP Address (e.g. 127.0.0.1:5433)</th>
-            <th>AEM Author host (e.g. author-company.host.com)</th>
-          </tr>
-        <tbody>
-      </table>
-      <button id="add">Add new mapping</button>
-    </body>
-    <script src="options.js"></script>
-  </html>
+    </style>
+</head>
+<body>
+<h1>AEM Chrome Plugin: IP - Sites Mapping</h1>
+<p>The <a
+        href="https://experienceleague.adobe.com/docs/experience-manager-65/developing/bestpractices/best-practices.html?lang=en#bestpractices"
+        target="_blank">AEM Best Practices</a> advises you to block access to some developer tools on the AEM author.
+    Access should only be available when accessing the author by IP. The below mapping makes sure that you can access
+    these tools without hitting a block from dispatcher level.</p>
+<button id="save">Save mappings</button>
+<span id="success" style="display:none;">Changes successfully changed!</span>
+<table>
+    <caption></caption>
+    <tbody id="mappingsTable" data-count="0">
+    <tr>
+        <th scope="col">IP Address (e.g. 127.0.0.1:5433)</th>
+        <th scope="col">AEM Author host (e.g. author-company.host.com)</th>
+    </tr>
+    <tbody>
+</table>
+<button id="add">Add new mapping</button>
+</body>
+<script src="options.js"></script>
+</html>
